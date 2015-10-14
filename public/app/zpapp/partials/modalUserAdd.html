@@ -1,0 +1,35 @@
+<div >
+    <div class="modal-header">
+        <h3>{{modalOptions.headerText}}</h3>
+    </div>
+    <div class="modal-body">
+        <div>
+            <form name="userAddForm" novalidate>
+                <div class="form-group">
+                    <label for="txtAddId">人员ID</label>
+                    <input id="txtAddId" data-ng-model="modalOptions.user.id" name="txtAddId" type="text" class="form-control"  placeholder="人员ID">
+                </div>
+                <div class="form-group">
+                    <label for="txtAddName">姓名</label>
+                    <input data-ng-model="modalOptions.user.name" type="text" class="form-control" name="txtAddName" id="txtAddName" placeholder="姓名">
+                </div>
+                <div class="form-group">
+                    <label for="txtAddTitle">职位</label>
+                    <input data-ng-model="modalOptions.user.title" type="text" class="form-control" name="txtAddTitle" id="txtAddTitle" placeholder="职位">
+                </div>
+                <div class="form-group">
+                    <label for="txtAddPhone">电话</label>
+                    <input data-ng-model="modalOptions.user.phone" type="text" class="form-control" name="txtAddPhone" id="txtAddPhone" placeholder="电话">
+                </div>
+                <div class="form-group">
+                    <label for="txtAddEmail">邮箱</label>
+                    <input data-ng-model="modalOptions.user.email" type="text" class="form-control" name="txtAddEmail" id="txtAddEmail" placeholder="邮箱">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn" data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
+        <button class="btn btn-primary" data-ng-click="modalOptions.ok();">{{modalOptions.actionButtonText}}</button>
+    </div>
+</div>

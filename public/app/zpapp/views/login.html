@@ -1,0 +1,51 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3>用户登录</h3>
+        </header>
+        <form name="loginForm" novalidate>
+            <div class="login">
+                <div class="row">
+                    <div class="col-md-2">
+                        用户名:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="userName" class="form-control" data-ng-model="vm.userName" required />
+                        <span class="errorMessage" ng-show="loginForm.userName.$touched && loginForm.userName.$invalid">
+                            用户名不能为空
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        密码:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="password" name="userPwd" class="form-control"
+                               data-ng-model="vm.userPwd"
+                               data-ng-minlength="6"
+                               required />
+                        <span class="errorMessage" ng-show="loginForm.userPwd.$touched && loginForm.userPwd.$invalid">
+                            密码不能为空
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary"
+                                data-ng-click="login()"
+                                ng-disabled="loginForm.$invalid || !loginForm.$dirty">
+                            Login
+                        </button>
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <div data-ng-show="vm.errorMessage">
+                        {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

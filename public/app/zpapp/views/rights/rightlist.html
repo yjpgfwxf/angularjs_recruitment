@@ -1,0 +1,145 @@
+<div class="rightbody">
+    <div class="leftContainer">
+        <div class="row">
+            <div class="col-md-12 groupBorder">
+                <span class="groupTitle">小微企业</span><span class="addIcon" ng-click="org.showAdd()">+</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-repeat="group in org.orgData">
+                    <div class="groupLevel">
+                        <div ng-click="org.itemToggle(group)" class="groupLevelOne {{group.iconClass}} {{group.selected}}">
+                            <div>
+                                <span class="nodeTitle">{{group.name}}</span>
+                                <div class="{{group.showButton}}">
+                                    <span class="stateIcon"></span>
+                                    <span class="permissionIcon"></span>
+                                    <span class="updateIcon"></span>
+                                    <span class="deleteIcon"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-repeat="rowTwo in group.childs" class="{{group.showClass}}">
+                            <div ng-click="org.itemToggle(rowTwo)" class="groupLevelTwo {{rowTwo.iconClass}} {{rowTwo.selected}}">
+                                <div>
+                                    <span class="nodeTitle">{{rowTwo.name}}</span>
+                                    <div class="{{rowTwo.showButton}}">
+                                        <span class="stateIcon"></span>
+                                        <span class="permissionIcon"></span>
+                                        <span class="updateIcon"></span>
+                                        <span class="deleteIcon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-repeat="rowThree in rowTwo.childs" class="{{rowTwo.showClass}}">
+                                <div ng-click="org.itemToggle(rowThree)" class="groupLevelThree {{rowThree.iconClass}} {{rowThree.selected}}">
+                                    <div>
+                                        <span class="nodeTitle">{{rowThree.name}}</span>
+                                        <div class="{{rowThree.showButton}}">
+                                            <span class="stateIcon"></span>
+                                            <span class="permissionIcon"></span>
+                                            <span class="updateIcon"></span>
+                                            <span class="deleteIcon"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-repeat="rowFour in rowThree.childs" class="{{rowThree.showClass}} {{rowFour.selected}}">
+                                    <div class="groupLevelFour closeIcon">
+                                        <div>
+                                            <span class="nodeTitle">{{rowFour.name}}</span>
+                                            <div class="{{rowFour.showButton}}">
+                                                <span class="stateIcon"></span>
+                                                <span class="permissionIcon"></span>
+                                                <span class="updateIcon"></span>
+                                                <span class="deleteIcon"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightContainer">
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <input placeholder="请输入姓名查找" type="text" class="form-control input-sm searchInput" >
+                <span class="searchIcon" aria-hidden="true">
+                    <img src="/zp/img/ico_search.png">
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center userTitle">
+                    {{org.currentName}}<span class="addIcon" ng-click="user.showAdd()">+</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table tableUser">
+                        <tr>
+                            <th>人员ID</th>
+                            <th>姓名</th>
+                            <th>职位</th>
+                            <th>电话</th>
+                            <th>邮箱</th>
+                            <th>操作</th>
+                        </tr>
+                        <tbody >
+                        <tr ng-repeat="item in user.userData">
+                            <td>
+                                {{item.id}}
+                            </td>
+                            <td>
+                                {{item.name}}
+                            </td>
+                            <td>
+                                {{item.title}}
+                            </td>
+                            <td>
+                                {{item.phone}}
+                            </td>
+                            <td>
+                                {{item.email}}
+                            </td>
+                            <td>
+                                <span class="permissionIcon"></span>
+                                <span ng-click="user.showUpdate(item)" class="updateIcon"></span>
+                                <span class="deleteIcon"></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row show-hide-animation" data-ng-show="user.userData == 0">
+            <div class="col-md-12">
+                <h4>没有用户数据</h4>
+            </div>
+        </div>
+        <div class="row show-hide-animation" data-ng-show="user.userData.length > 0">
+            <div class="col-md-12">
+                <div data-pagination
+                     data-on-select-page="pages.pageChanged(page)"
+                     data-total-items="pages.totalRecords"
+                     data-page="pages.currentPage"
+                     data-items-per-page="pages.pageSize"
+                     data-boundary-links="true"
+                     data-first-Text="第一页"
+                     data-previous-Text="上一页"
+                     data-next-Text="下一页"
+                     data-last-Text="最后一页"
+                     class="pagination-sm"
+                        ></div>
+            </div>
+        </div>
+    </div>
+</div>

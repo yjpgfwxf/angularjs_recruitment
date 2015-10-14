@@ -1,0 +1,277 @@
+body{
+
+}
+
+@bodyWidth:1200px;
+//圆角半径
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+//文本超出显示省略号
+.text-autocut{
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-text-overflow:ellipsis;
+  -khtml-text-overflow: ellipsis;
+  -icab-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+//内阴影 4个参数分别表示：x轴偏移、y轴偏移、模糊长度、透明度（默认颜色是黑色）
+.inner-shadow(@param1,@param2,@param3,@opacity){
+  -webkit-box-shadow:inset @param1 @param2 @param3 rgba(0, 0, 0, @opacity);
+  -moz-box-shadow:inset @param1 @param2 @param3 rgba(0, 0, 0, @opacity);
+  box-shadow:inset @param1 @param2 @param3 rgba(0, 0, 0, @opacity);
+}
+//外阴影
+.box-shadow(@x: 0px, @y: 0px, @blur: 8px, @alpha: 0.5) {
+  -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+//颜色渐变
+.gradient(@origin: top, @startColor, @endColor){
+  background-color:@startColor/2 + @endColor/2;
+  filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{startColor}', endColorstr='@{endColor}')";
+  background-image: -webkit-linear-gradient(@origin, @startColor, @endColor);
+  background-image:-moz-linear-gradient(@origin, @startColor, @endColor);
+  background-image: -o-linear-gradient(@origin, @startColor, @endColor);
+  background-image: -ms-linear-gradient(@origin, @startColor, @endColor);
+  background-image: linear-gradient(@origin, @startColor, @endColor);
+}
+
+//设置编辑，删除图标
+.setIcon(@url,@width:16px,@height:16px,@imgWidth:16px,@imgHeight:16px){
+  float: left;
+  display: block;
+  background: url(@url) no-repeat left;
+  background-size: @imgWidth @imgHeight;
+  width: @width;
+  height: @height;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.display-none{
+  display: none;
+}
+.display-show{
+  display: block;
+}
+
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.modal-header{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.navbar{
+  height: 76px;
+  width: @bodyWidth;
+  margin: 0 auto;
+}
+
+.header{
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.bodyContainer{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 76px;
+  display: inline-block;
+  .gradient(top, #eaebed, #ffffff);
+}
+
+.bodyContent{
+  width: @bodyWidth;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.addIcon{
+  font-size: 20px;
+  display: inline-block;
+  background-color: #04a1dd;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+//设置权限 
+.permissionIcon{
+  .setIcon("/zp/img/ico_empower.png");
+}
+
+//修改
+.updateIcon{
+  .setIcon("/zp/img/ico_edit.png");
+}
+//删除
+.deleteIcon{
+  .setIcon("/zp/img/ico_dele.png");
+}
+//状态开关
+.stateIcon{
+  .setIcon("/zp/img/ico_state_open.png",22px,16px,22px,13px);
+}
+
+
+/*权限管理页面 */
+.rightbody{
+  .leftContainer{
+    float:left;
+    width:300px;
+
+    .groupBorder{
+      padding-bottom: 10px;
+      border-bottom: 1px solid #96a8b3;
+    }
+
+    .groupTitle{
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .groupLevel{
+      padding-top: 18px;
+
+      .nodeTitle{
+        display: block;
+        float: left;
+        padding-right: 10px;
+      }
+
+      .groupLevelOne{
+        padding-left: 18px;
+        cursor: pointer;
+      }
+      .groupLevelTwo{
+        padding-left: 18px;
+        margin-left: 18px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+      .groupLevelThree{
+        padding-left: 18px;
+        margin-left: 36px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+      .groupLevelFour{
+        padding-left: 18px;
+        margin-left: 54px;
+        margin-top: 10px;
+      }
+      .closeIcon{
+        background: url("/zp/img/arrow_right.png") no-repeat left;
+        background-size: 12px 12px;
+        display: inline-block;
+        &:hover{
+          //background: url("/zp/img/arrow_right_2.png") no-repeat left;
+        }
+      }
+      .openIcon{
+        background: url("/zp/img/arrow_bottom.png") no-repeat left;
+        background-size: 12px 12px;
+        display: inline-block;
+        &:hover{
+          //background: url("/zp/img/arrow_bottom_2.png") no-repeat left;
+        }
+      }
+      .showButton{
+        display: block;
+        float: left;
+      }
+      .hideButton{
+        display: none;
+        float: left;
+      }
+      .nodeSelected{
+        color: #ffffff;
+        background-color: #3c3d3f;
+      }
+    }
+  }
+  .rightContainer{
+    width: auto;
+    margin-left:300px;
+
+    .searchInput{
+      width: 200px;
+      float: right;
+    }
+
+    .searchIcon{
+      position: absolute;
+      top: 5px;
+      right: 25px;
+    }
+
+    .userTitle{
+      font-size: 24px;
+      font-weight: bold;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #03a0dc;
+      width: 220px;
+      margin: 0px auto;
+    }
+
+    .tableUser{
+      border-collapse:separate;
+      padding-top: 20px;
+      & th{
+        border-top: 0px !important;
+      }
+
+      & td{
+        border-top: 0px !important;
+      }
+
+      & tr:nth-child(odd) {
+        //background-color: red;
+      }
+      & tr:nth-child(even) {
+        background-color: #f8f9fb;
+      }
+
+      & tr:hover{
+        background-color: #dff6fe;
+        color: #059fde;
+
+        .permissionIcon{
+          background: url("/zp/img/ico_empower_2.png") no-repeat;
+        }
+        .updateIcon{
+          background: url("/zp/img/ico_edit_2.png") no-repeat;
+        }
+        .deleteIcon{
+          background: url("/zp/img/ico_dele_2.png") no-repeat;
+        }
+      }
+
+    }
+  }
+}
+
+
+
+.paddingtop20{
+  padding-top: 20px;
+}
+

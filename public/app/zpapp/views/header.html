@@ -1,0 +1,17 @@
+<header class="navbar navbar-inner navbar-fixed-top" >
+    <nav class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">
+                <img src="/zp/img/logo.png" alt="logo">
+                <span class="appTitle">{{ vm.appTitle }}</span>
+            </a>
+        </div>
+        <div class="nav-container" data-collapse="isCollapsed">
+            <!-- With menu-highlighter directive -->
+            <ul class="nav navbar-nav nav-pills navBarPadding" menu-highlighter highlight-class-name="active" ng-repeat="item in vm.navData">
+                <li><a href="#/{{item.url}}">{{item.moduleName}}</a></li>
+
+            </ul>
+        </div>
+    </nav>
+</header>

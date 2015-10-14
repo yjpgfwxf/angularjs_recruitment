@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>招聘通</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="width=device-width,target-densitydpi=device-dpi,initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+
+    <link href="/zp/style/bootstrap.css" rel="stylesheet" />
+    <link href="/zp/style/animations.css" rel="stylesheet" />
+    <link href="/zp/style/css.css" rel="stylesheet" />
+</head>
+<body ng-app="zpApp">
+
+<div>
+    <div class="header">
+        <div ng-controller="HeaderController as vm" ng-include="'/zp/app/zpapp/views/header.html'"></div>
+    </div>
+
+    <div class="slide-animation-container bodyContainer">
+        <div ng-view id="ng-view" class="slide-animation bodyContent"></div>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="navbar navbar-fixed-bottom">
+        <div class="navbar-inner footer">
+            <div class="container">
+                <footer>
+                    <div class="row">
+                        <div class="col-md-12">
+                            软通动力
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div wc-overlay wc-overlay-delay="300" class="text-center">
+    <img src="/zp/img/spinner.gif" />&nbsp;&nbsp;Loading
+</div>
+
+<script src="/zp/js/angular.js"></script>
+<script src="/zp/js/angular-route.js"></script>
+<script src="/zp/js/angular-animate.js"></script>
+<script src="/zp/js/angular-ui-bootstrap.js"></script>
+<script src="/zp/js/common/tools.js"></script>
+
+<script src="/zp/js/common/directives/wc-overlay.js"></script>
+
+<script src="/app/zpapp/app.js"></script>
+<script src="/app/zpapp/services/httpInterceptors.js"></script>
+
+<!-- services -->
+<script src="/app/zpapp/services/commonService.js"></script>
+<script src="/app/zpapp/services/modalService.js"></script>
+<script src="/app/zpapp/services/authService.js"></script>
+<script src="/app/zpapp/services/rightService.js"></script>
+<script src="/app/zpapp/services/systemInfoService.js"></script>
+
+<!-- controller -->
+<script src="/app/zpapp/controllers/loginController.js"></script>
+<script src="/app/zpapp/controllers/headerController.js"></script>
+<script src="/app/zpapp/controllers/rights/rightListController.js"></script>
+
+</body>
+</html>
